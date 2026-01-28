@@ -1,0 +1,10 @@
+export { Header } from "./header";
+export { TerminalHero } from "./terminal-hero";
+export { AboutSection } from "./about-section";
+export { SkillsSection } from "./skills-section";
+export { ExperienceSection } from "./experience-section";
+export { ProjectsSection } from "./projects-section";
+export { ContactSection } from "./contact-section";
+export { Footer } from "./footer";
+export { SocialSidebar } from "./social-sidebar";
+export { LanguageToggle } from "./language-toggle";
