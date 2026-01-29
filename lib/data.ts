@@ -70,7 +70,7 @@ export const proyectos = [
     liveUrl: null,
     githubUrl: "https://github.com/rodriiii94/MercaDawFinal",
     featured: true,
-    icon: "store",
+    icon: "ShoppingCart",
   },
   {
     id: 2,
@@ -81,7 +81,7 @@ export const proyectos = [
     liveUrl: null,
     githubUrl: "https://github.com/rodriiii94/RoyList",
     featured: true,
-    icon: "shopping-cart",
+    icon: "ShoppingCart",
   },
 ];
 

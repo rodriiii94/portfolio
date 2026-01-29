@@ -1,6 +1,6 @@
 "use client";
 
-import { infoPersonal, experiencia, intereses } from "@/lib/data";
+import { infoPersonal, experiencia, intereses, educacion } from "@/lib/data";
 import { useI18n } from "@/lib/i18n";
 import { Terminal, GraduationCap, Target } from "lucide-react";
 
@@ -37,8 +37,8 @@ export function AboutSection() {
             {/* Status indicator */}
             <div className="flex items-center gap-3 pt-4">
               <div className="relative">
-                <div className="w-3 h-3 bg-primary rounded-full" />
-                <div className="absolute inset-0 w-3 h-3 bg-primary rounded-full animate-ping opacity-75" />
+                <div className="w-5 h-5 bg-primary rounded-full" />
+                <div className="absolute inset-0 w-5 h-5 bg-primary rounded-full animate-ping opacity-75" />
               </div>
               <span className="text-sm text-muted-foreground font-mono">
                 {infoPersonal.available ? t.about.available : t.about.notAvailable}
@@ -57,13 +57,13 @@ export function AboutSection() {
                 </h3>
               </div>
               <ul className="space-y-2">
-                {experiencia.map((cert, index) => (
+                {educacion.map((cert, index) => (
                   <li
                     key={index}
                     className="text-sm text-muted-foreground flex items-start gap-2"
                   >
                     <span className="text-primary mt-1">{">"}</span>
-                    {cert.role} at {cert.company}
+                    {cert}
                   </li>
                 ))}
               </ul>

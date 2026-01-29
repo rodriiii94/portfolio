@@ -9,7 +9,7 @@ import { Menu, X, Github, Linkedin } from "lucide-react";
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const navItems = [
     { name: t.nav.about, href: "#about" },
@@ -65,13 +65,13 @@ export function Header() {
             ))}
             <LanguageToggle />
             <a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={locale === "es" ? "cv/EspañolJoseRodrigo.pdf" : "cv/EnglishJoseRodrigo.pdf"}
+              download={locale === "es" ? "cv/EspañolJoseRodrigo.pdf" : "cv/EnglishJoseRodrigo.pdf"}
               className="px-4 py-2 border border-primary text-primary text-sm font-mono rounded hover:bg-primary/10 transition-colors"
             >
               CV
             </a>
+
           </div>
 
           {/* Mobile menu button */}
@@ -109,10 +109,9 @@ export function Header() {
               </a>
             ))}
             <a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-4 py-2 border border-primary text-primary text-sm font-mono rounded hover:bg-primary/10 transition-colors"
+              href={locale === "es" ? "cv/EspañolJoseRodrigo.pdf" : "cv/EnglishJoseRodrigo.pdf"}
+              download={locale === "es" ? "cv/EspañolJoseRodrigo.pdf" : "cv/EnglishJoseRodrigo.pdf"}
+              className="px-4 py-2 border border-primary text-primary text-sm font-mono rounded hover:bg-primary/10 transition-colors"
             >
               CV
             </a>
