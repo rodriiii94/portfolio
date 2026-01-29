@@ -14,8 +14,10 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(() => {
+    if (typeof window === "undefined") return "en";
+
     const saved = localStorage.getItem("locale") as Locale | null;
-    return saved && (saved === "es" || saved === "en") ? saved : "es";
+    return saved === "en" || saved === "es" ? saved : "en";
   });
 
   const setLocale = (newLocale: Locale) => {
