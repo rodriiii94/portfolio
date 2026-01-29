@@ -68,7 +68,6 @@ export const translations = {
     // Footer
     footer: {
       designedBy: "Diseñado y desarrollado por",
-      builtWith: "Desarrollado con Next.js & Tailwind CSS",
     },
     // Información
     personal: {

@@ -43,9 +43,6 @@ export function Footer() {
               {infoPersonal.nombre}
             </a>
           </p>
-          <p className="text-muted-foreground/60 text-xs font-mono mt-2">
-            {t.footer.builtWith}
-          </p>
         </div>
       </div>
     </footer>

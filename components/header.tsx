@@ -104,7 +104,7 @@ export function Header() {
                 className="block text-foreground hover:text-primary transition-colors font-mono"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span className="text-primary text-sm">0{index + 1}.</span>{" "}
+                <span className="text-primary text-sm">0{index}.</span>{" "}
                 {item.name}
               </a>
             ))}
