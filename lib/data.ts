@@ -71,6 +71,7 @@ export const proyectos = [
     githubUrl: "https://github.com/rodriiii94/MercaDawFinal",
     featured: true,
     icon: "ShoppingCart",
+    image: "/projects/MercaDawImp.png",
   },
   {
     id: 2,
@@ -82,6 +83,7 @@ export const proyectos = [
     githubUrl: "https://github.com/rodriiii94/RoyList",
     featured: true,
     icon: "ShoppingCart",
+    image: "/projects/MercaDawImp.png",
   },
 ];
 

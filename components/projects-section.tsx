@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 import { proyectos } from "@/lib/data";
 import { useI18n } from "@/lib/i18n";
@@ -13,7 +14,9 @@ import {
   Key,
   Flag,
   Folder,
+  ShoppingCart,
 } from "lucide-react";
+import { maxHeaderSize } from "node:http";
 
 const iconMap: Record<string, React.ElementType> = {
   shield: Shield,
@@ -55,17 +58,41 @@ export function ProjectsSection() {
                 }`}
               >
                 {/* Project visual */}
+                {/* Project visual */}
                 <div
                   className={`md:col-span-7 ${
                     index % 2 === 1 ? "md:col-start-6 md:order-2" : ""
                   }`}
                 >
+                  {/* El contenedor principal debe tener 'relative' y un tamaño definido (aspect-video) */}
                   <div className="relative aspect-video bg-secondary/30 rounded-lg border border-border overflow-hidden group-hover:border-primary/30 transition-colors">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Icon className="w-16 h-16 text-primary/20 group-hover:text-primary/40 transition-colors" />
+                    
+                    {/* 1. LA IMAGEN: Va primero (o con z-index bajo). 
+                        Usamos 'fill' para que llene el contenedor padre automáticamente. 
+                        'object-cover' asegura que no se deforme. 
+                    */}
+                    <Image 
+                      src={project.image} 
+                      alt={project.title} 
+                      fill 
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+
+                    {/* 2. EL ICONO (Opcional): Si quieres que se vea DETRÁS si la imagen falla, o ENCIMA como marca de agua. 
+                        Si la imagen carga bien, tapará esto a menos que uses z-index.
+                        Lo dejo aquí por si la imagen es semitransparente o tarda en cargar.
+                    */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                      {/* Opcional: añade 'opacity-0' si no quieres ver el icono cuando hay foto */}
+                      <Icon className="w-16 h-16 text-primary/20 group-hover:text-primary/40 transition-colors hidden sm:block opacity-50"/>
                     </div>
-                    {/* Scan line effect */}
-                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity animate-pulse" />
+
+                    {/* 3. EFECTO SCAN LINE / OVERLAY: 
+                        Debe ir AL FINAL o con z-index mayor para que se "pinte" encima de la foto.
+                    */}
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none mix-blend-overlay" />
+                    
                   </div>
                 </div>
 
@@ -143,8 +170,8 @@ export function ProjectsSection() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {otherProjects.map((project, idx) => {
                 const Icon = project.icon
-                  ? iconMap[project.icon] || Folder
-                  : Folder;
+                  ? iconMap[project.icon] || File
+                  : ShoppingCart;
                 // Other projects start after featured ones
                 const translatedProject = t.projectsData[featuredProjects.length + idx];
 
