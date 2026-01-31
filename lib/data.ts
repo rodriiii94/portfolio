@@ -83,7 +83,7 @@ export const proyectos = [
     githubUrl: "https://github.com/rodriiii94/RoyList",
     featured: true,
     icon: "ShoppingCart",
-    image: "/projects/MercaDawImp.png",
+    image: "/projects/RoyListImp.png",
   },
 ];
 

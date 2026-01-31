@@ -96,7 +96,7 @@ export function Header() {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-card/95 backdrop-blur-md border-b border-border">
-          <div className="px-6 py-8 space-y-6">
+          <div className="px-6 py-6 space-y-6">
             {navItems.map((item, index) => (
               <a
                 key={item.name}
@@ -117,7 +117,7 @@ export function Header() {
             </a>
 
             {/* Social links */}
-            <div className="flex gap-4 pt-4 border-t border-border">
+            <div className="flex gap-4 mt-5 pt-4 border-t border-border">
               <a
                 href={infoPersonal.social.github}
                 target="_blank"

@@ -31,9 +31,9 @@ const categoryConfig = {
   },
   frameworks: {
     icon: FileBracesCorner,
-    color: "text-chart-4",
-    border: "border-chart-4/30",
-    bg: "bg-chart-4/5",
+    color: "text-destructive",
+    border: "border-destructive/30",
+    bg: "bg-destructive/5",
   },
 };
 
